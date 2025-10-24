@@ -1,9 +1,17 @@
+#!/bin/bash
+
 set -e
 
-echo "Downloading Google Chrome..."
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -O /tmp/google-chrome.deb
+echo "buscando actualizaciones..."
+echo "" | sudo apt update >/dev/null 2>&1
 
-echo "Installing Google Chrome..."
-sudo dpkg -i /tmp/google-chrome.deb || sudo apt --fix-broken install -y
+echo "actualizando dependencias..."
+echo "" | sudo apt upgrade -y >/dev/null 2>&1
 
-google-chrome
+echo "descargando Google Chrome..."
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -O /tmp/google-chrome.deb >/dev/null 2>&1
+
+echo "instalando Google Chrome..."
+sudo dpkg -i /tmp/google-chrome.deb >/dev/null 2>&1 || sudo apt --fix-broken install -y >/dev/null 2>&1
+
+echo "Google Chrome instalado correctamente"
