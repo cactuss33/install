@@ -15,3 +15,4 @@ echo "instalando Google Chrome..."
 sudo dpkg -i /tmp/google-chrome.deb >/dev/null 2>&1 || sudo apt --fix-broken install -y >/dev/null 2>&1
 
 echo "Google Chrome instalado correctamente"
+google-chrome
